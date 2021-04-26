@@ -1,0 +1,134 @@
+A Given Undirected graph check it is a tree or not. For that we need to check the following two conditions
+ (1). The graph can't have any cycle
+ (2). The graph should connected. i.e : if it is disconnected and not contain cycle then it is not a tree.
+ 
+ Let's slove the problem
+ 
+ Given N number of vertices, E number of edges and relation between them to form an undirected, unweighted graph, 
+ your task is to check whether the graph is a tree or not.
+ 
+ The input looks like this :
+ 
+ The first line contains an integer T  denoting the number of test cases.
+For each test case:
+The first line contains two integers N and E.
+The next E lines contain two space-separated integers u and  v are present denoting that there is a bidirectional edge from u to v.
+
+Output:
+
+Print YES or No.
+
+Example:
+
+Input:
+
+2
+3 2
+0 1
+0 2
+9 8
+0 2
+0 5
+1 7
+2 4
+4 7
+3 5
+7 8
+4 8
+
+output:
+
+YES
+NO
+
+
+Before solving the question Let's discuess the possible test cases:
+
+1. Graph connected and contains cycle   --->  Not a tree
+2. Graph connected and not cycle   --->   it is a tree
+3. Graph disconnected and no cycles --->  Not a tree
+4. Graph disconnected and cycles -->   Not a tree.
+
+
+
+NOTE:  First try your self then see the code   
+
+Idea:   Use DFS with one node.
+
+import java.util.*;
+import java.io.*;
+  
+public class Main {
+    
+    public static boolean isTree(int v,ArrayList<ArrayList<Integer>> graph,boolean[] visited,int parent)
+    {
+       visited[v] = true;
+       
+       for(int i=0;i<graph.get(v).size();i++)
+       {
+           int child = graph.get(v).get(i);
+          if(!visited[child])
+          {
+             if(isTree(child,graph,visited,v))
+             {
+               return true;
+             }
+          }
+          else if(child != parent)
+          {
+            return true;
+          }
+       }
+       return false;
+    }
+    public static void main(String args[]) throws IOException {
+      
+      //write your code here
+      
+      Scanner sc = new Scanner(System.in);
+      int t = sc.nextInt();
+      while(t-- > 0)
+      {
+         int V = sc.nextInt();
+         int n = sc.nextInt();
+         ArrayList<ArrayList<Integer>> graph = new ArrayList<>();
+         for(int i=0;i<V;i++)
+         {
+            graph.add(i,new ArrayList<>());
+         }
+         for(int i=0;i<n;i++)
+         {
+           int u = sc.nextInt();
+           int v = sc.nextInt();
+           graph.get(u).add(v);
+           graph.get(v).add(u);
+         }
+         boolean[] visited = new boolean[V];
+         boolean flag = isTree(0,graph,visited,-1);
+
+         for(int i=0;i<V;i++)
+         {
+            if(!visited[i])
+            {
+                flag = true;
+                break;
+            }
+         }
+         if(flag)
+         {
+             System.out.println("NO");
+         }
+         else
+         {
+            System.out.println("YES");
+         }     
+         
+      }
+      
+      
+    }
+  }
+
+
+
+
