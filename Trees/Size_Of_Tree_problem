@@ -1,0 +1,24 @@
+Given a binary tree, your task is to print the size of the tree.
+Size of tree represented as the number of nodes in the given tree.
+
+Note - You have to complete calculateSize() function, no need to implement the tree.
+
+Input format
+Root of the tree is passed to the calculateSize().
+
+Output format
+Return size of the tree.
+
+Constraints
+1 <= N <= 64
+
+Time Limit
+1 second
+
+Example
+Input
+1 2 3 4 5 6 7 -1 -1 -1 -1 -1 -1 -1 -1
+Note : Level order traversal of input tree, where  −1 represents null nodes.
+
+Output
+7
