@@ -1,0 +1,22 @@
+Given a binary search tree and a key, return the node if it exist in the tree, else return NULL.
+
+Note - You have to complete searchInBST() function, no need to implement the tree.
+
+Input format
+Root of the tree is passed to the searchInBST()
+And the tree is constructed in level order format.
+
+Output format
+Return the node if it exist in the tree, else return NULL.
+
+Constraints 1 <= N <= 64
+
+Example
+Input
+4 3 6 1 -1 5 7 -1 -1 -1 -1 -1 -1
+5
+
+Note : Level order traversal of input tree, where −1 represents null nodes.
+
+Output
+Yes
