@@ -1,0 +1,7 @@
+A SumTree is a Binary Tree where the value of a node is equal to sum of the nodes present in the left subtree and right subtree. You are given a binary tree and the task is to return true (1 in case of C language) if given binary tree is SumTree else return false(0 in case of C language). 
+
+Note -
+
+You have to complete checkSumTree() function, no need to implement the tree.
+Consider empty tree as sumTree with sum=0.
+Consider leaf nodes as sumTree
