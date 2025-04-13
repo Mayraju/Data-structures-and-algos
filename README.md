@@ -7,3 +7,5 @@ problems and code
 1. second Largest Element in the array.
 2. move all zeros to end of the array (right end).
 3. reverse an array.
+4. rotate the elements
+5. next permutation
